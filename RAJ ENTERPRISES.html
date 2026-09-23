@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAJ ENTERPRISES | Premium Aluminium & Fabrication</title>
+    <meta name="description" content="RAJ ENTERPRISES - Premium Aluminium and Fabrication building work and suppliers in Pune, Maharashtra">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root { --primary: #0d1117; --secondary: #161b22; --accent: #d4a574; --gold: #ffd700; --text: #e6e6e6; --muted: #9ca3af; }
+        body { font-family: 'Poppins', sans-serif; background: var(--primary); color: var(--text); overflow-x: hidden; }
+        .navbar { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 165, 116, 0.2); }
+        .navbar-brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.8rem; color: var(--accent) !important; }
+        .navbar-brand span { color: var(--gold); }
+        .nav-link { color: var(--text) !important; font-weight: 500; margin: 0 10px; position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gold); transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--gold) !important; }
+
+        .hero { min-height: 90vh; display: flex; align-items: center; position: relative; background: radial-gradient(ellipse at 30% 50%, rgba(212,165,116,0.1), transparent), radial-gradient(ellipse at 70% 20%, rgba(255,215,0,0.08), transparent); }
+        .hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920') center/cover; opacity: 0.3; }
+        .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,17,23,0.7), rgba(13,17,23,0.95)); }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .hero-badge { display: inline-flex; align-items: center; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); color: var(--gold); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 30px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; background: linear-gradient(135deg, var(--accent), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .lead { font-size: 1.3rem; color: var(--muted); margin-bottom: 40px; }
+        .btn-hero-primary { padding: 15px 40px; border-radius: 50px; font-weight: 700; text-transform: uppercase; background: linear-gradient(135deg, var(--gold), var(--accent)); color: var(--primary); border: none; box-shadow: 0 10px 30px rgba(212,165,116,0.3); transition: 0.3s; }
+        .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212,165,116,0.5); }
+        .btn-hero-outline { padding: 15px 40px; border-radius: 50px; font-weight: 700; text-transform: uppercase; background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+        .btn-hero-outline:hover { background: var(--accent); color: var(--primary); }
+        .hero-meta { margin-top: 60px; display: flex; justify-content: center; gap: 40px; }
+        .hero-meta i { font-size: 1.5rem; color: var(--gold); }
+
+        .section-padding { padding: 100px 0; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 800; text-align: center; color: var(--accent); margin-bottom: 60px; }
+
+        .service-card { background: var(--secondary); border: 1px solid var(--border); border-radius: 20px; padding: 40px 30px; text-align: center; transition: 0.4s; }
+        .service-card:hover { transform: translateY(-10px); border-color: rgba(212,165,116,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .service-icon { width: 70px; height: 70px; border-radius: 50%; background: rgba(212,165,116,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: var(--gold); border: 1px solid rgba(212,165,116,0.3); }
+        .service-card h4 { color: var(--accent); margin-bottom: 15px; }
+        .service-card p { color: var(--muted); font-size: 0.9rem; }
+
+        /* Payment Card */
+        .payment-container { max-width: 900px; margin: 0 auto; }
+        .payment-card { background: linear-gradient(145deg, var(--secondary), #1a2029); border: 2px solid rgba(255,215,0,0.3); border-radius: 24px; padding: 50px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.5); position: relative; }
+        .payment-card::before { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; height: 4px; background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold)); border-radius: 24px 24px 0 0; }
+        .payment-card h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--accent); }
+        .payment-icon { font-size: 3rem; color: var(--gold); margin: 20px 0; }
+        .payment-button { background: linear-gradient(135deg, var(--gold), var(--accent)); color: var(--primary); border: none; padding: 18px 50px; font-size: 1.1rem; font-weight: 700; border-radius: 50px; cursor: pointer; transition: 0.4s; box-shadow: 0 10px 40px rgba(212,165,116,0.3); text-transform: uppercase; }
+        .payment-button:hover { transform: translateY(-4px); box-shadow: 0 15px 60px rgba(212,165,116,0.5); }
+        .secure-note { margin-top: 20px; color: var(--muted); font-size: 0.8rem; }
+        .accepted-badges { margin-top: 30px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .accepted-badge { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 0.8rem; color: var(--muted); }
+
+        /* Accordion */
+        .accordion-item { background: var(--primary); border: 1px solid var(--border) !important; border-radius: 16px !important; margin-bottom: 15px; overflow: hidden; }
+        .accordion-button { background: transparent; color: var(--accent); font-weight: 500; padding: 22px 30px; border: none; }
+        .accordion-button:not(.collapsed) { background: rgba(212,165,116,0.05); color: var(--gold); box-shadow: none; }
+        .accordion-body { color: var(--muted); line-height: 1.8; border-top: 1px solid var(--border); }
+        .accordion-body strong { color: var(--accent); }
+
+        /* Contact & Footer */
+        .contact-form { background: var(--secondary); border: 1px solid var(--border); border-radius: 20px; padding: 40px; }
+        .form-control { background: var(--primary); border: 1px solid var(--border); color: var(--text); padding: 15px 20px; border-radius: 12px; margin-bottom: 20px; }
+        .form-control:focus { border-color: var(--gold); box-shadow: 0 0 0 0.25rem rgba(255,215,0,0.1); background: var(--primary); color: var(--text); }
+        .submit-btn { background: linear-gradient(135deg, var(--gold), var(--accent)); color: var(--primary); border: none; padding: 15px; border-radius: 50px; font-weight: 700; width: 100%; }
+        .footer { background: var(--primary); border-top: 1px solid var(--border); padding: 40px 0; }
+        .footer-social a { color: var(--muted); font-size: 1.5rem; margin: 0 10px; }
+        .footer-social a:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-hard-hat me-2"></i>RAJ <span>ENTERPRISES</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(212,165,116,0.5);"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#payment">Payment</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-award me-2"></i>Premium Quality Since 2017</div>
+        <h1>RAJ ENTERPRISES</h1>
+        <p class="lead">Crafting Excellence in Aluminium & Fabrication Construction</p>
+        <div class="hero-buttons">
+            <a href="#payment" class="btn-hero-primary"><i class="fas fa-lock me-2"></i>Make a Payment</a>
+            <a href="#contact" class="btn-hero-outline">Get a Quote</a>
+        </div>
+        <div class="hero-meta">
+            <div><i class="fas fa-map-marker-alt"></i><p>Fursungi, Pune</p></div>
+            <div><i class="fas fa-certificate"></i><p>MSME Registered</p></div>
+            <div><i class="fas fa-globe"></i><p>Global Services</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="section-padding">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h4>Aluminium Fabrication</h4>
+                    <p>Custom aluminium fabrication for commercial and residential buildings.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h4>Building Work</h4>
+                    <p>Complete building construction and renovation solutions.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-boxes"></i></div>
+                    <h4>Suppliers</h4>
+                    <p>Quality building materials and aluminium supplies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="payment" class="section-padding">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Secure Checkout</h2>
+        <div class="payment-container" data-aos="zoom-in">
+            <div class="payment-card">
+                <h3>One Secure Payment Gateway</h3>
+                <div class="payment-icon"><i class="fas fa-shield-halved"></i></div>
+                <p style="color: var(--muted); margin-bottom: 30px;">All transactions are processed with 256-bit encryption in compliance with RBI & FEMA regulations.</p>
+                
+                <button class="payment-button" onclick="startPayment()"><i class="fas fa-lock"></i>&nbsp; Pay Securely Now</button>
+                
+                <div class="secure-note"><i class="fas fa-check-circle text-success"></i> SSL Secured | PCI-DSS Compliant | RBI Approved</div>
+                
+                <div class="accepted-badges">
+                    <span class="accepted-badge">Visa</span>
+                    <span class="accepted-badge">Mastercard</span>
+                    <span class="accepted-badge">Amex</span>
+                    <span class="accepted-badge">UPI</span>
+                    <span class="accepted-badge">International Cards</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 80px;" data-aos="fade-up">Our Policies</h3>
+        <div class="accordion" id="policyAccordion" data-aos="fade-up">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#terms"><i class="fas fa-file-contract me-3"></i>1. Terms & Conditions</button>
+                </h2>
+                <div id="terms" class="accordion-collapse collapse show" data-bs-parent="#policyAccordion">
+                    <div class="accordion-body">By using this website, you agree to the laws of the Republic of India. Any disputes shall fall under the jurisdiction of Pune, Maharashtra. The customer is responsible for ensuring their use complies with local laws.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#refund"><i class="fas fa-rotate-left me-3"></i>2. Refund & Cancellation Policy</button>
+                </h2>
+                <div id="refund" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                    <div class="accordion-body">Refund requests must be raised within <strong>7 days</strong>. Domestic refunds take <strong>7-10 business days</strong>. International refunds may take up to <strong>15 business days</strong> due to cross-border banking. Services already rendered are non-refundable.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#shipping"><i class="fas fa-truck-fast me-3"></i>3. Shipping & Delivery Policy</button>
+                </h2>
+                <div id="shipping" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                    <div class="accordion-body"><strong>Domestic (India):</strong> 3-5 business days.<br><strong>International:</strong> We ship internationally. Customers are responsible for customs duties. We require a valid <strong>IE Code</strong> for cross-border consignments.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy"><i class="fas fa-lock me-3"></i>4. Privacy Policy</button>
+                </h2>
+                <div id="privacy" class="accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                    <div class="accordion-body">Data is stored securely in <strong>India</strong> in compliance with RBI's data localization guidelines. We do not store complete card details on our servers.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-padding">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6" data-aos="fade-right">
+                <h4 class="text-white"><i class="fas fa-map-marker-alt text-warning me-2"></i>Address</h4>
+                <p class="text-muted">Kamthe Ali, Near Bus Stop, Fursungi, Haveli, Pune - 412308</p>
+                <h4 class="text-white mt-4"><i class="fas fa-phone text-warning me-2"></i>Phone</h4>
+                <p class="text-muted">+91 98814 41717</p>
+                <h4 class="text-white mt-4"><i class="fas fa-envelope text-warning me-2"></i>Email</h4>
+                <p class="text-muted">chetankute1717@gmail.com</p>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="contact-form">
+                    <h4 class="text-white mb-4">Send a Message</h4>
+                    <form id="contactForm">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container text-center">
+        <h5 class="text-warning">RAJ ENTERPRISES</h5>
+        <p class="text-muted">© 2026 RAJ ENTERPRISES. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+
+    // ✨ REPLACE THE LINK BELOW WITH YOUR ACTUAL PAYMENT GATEWAY CHECKOUT URL ✨
+    function startPayment() {
+        window.location.href = "https://your-payment-link.com/checkout";
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+</script>
+</body>
+</html>
